@@ -6,13 +6,13 @@
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 17:43:08 by urabex            #+#    #+#             */
-/*   Updated: 2024/08/30 17:49:53 by urabex           ###   ########.fr       */
+/*   Updated: 2024/09/02 15:58:52 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putnbr(int num)
+void    ft_putnbr(int num)
 {
     char str[10] = "0123456789";
 
