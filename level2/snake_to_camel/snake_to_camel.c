@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   snake_to_camel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:53:18 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:53:29 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-size_t  ft_strcspn(const char *s, const char *reject)
+int main(int argc, char **argv)
 {
-    int i = 0;
-    int j = 0;
-
-    while (s[i] != '\0')
-    {
-        while (reject[j] != '\0')
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+	int i = 0;
+	
+	if (argc == 2)
+	{
+		while(argv[1][i] != '\0')
+		{
+			if (argv[1][i] == '_')
+			{
+				i++;
+				argv[1][i] = argv[1][i]-32;
+			}
+			write (1, &argv[1][i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }

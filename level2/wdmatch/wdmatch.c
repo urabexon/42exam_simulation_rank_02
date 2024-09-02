@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   wdmatch.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:58:51 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:59:33 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-size_t  ft_strcspn(const char *s, const char *reject)
+int main(int argc, char **argv)
 {
-    int i = 0;
-    int j = 0;
-
-    while (s[i] != '\0')
+    int i;
+    int j;
+    
+    if (argc == 3)
     {
-        while (reject[j] != '\0')
+        j = 0;
+        i = 0;
+        while (argv[2][j])
         {
-            if(s[i] == reject[j])
-                return (i);
+            if (argv[1][i] == argv[2][j])
+                i++;
             j++;
         }
-        i++;
+        if (argv[1][i] == '\0')
+        {
+            i = 0;
+            while(argv[1][i])
+            {
+                write(1, &argv[1][i], 1);
+                i++;
+            }
+        }
     }
-    return (i);
+    write(1, "\n", 1);
+    return(0);
 }

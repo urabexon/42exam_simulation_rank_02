@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:38:24 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:42:17 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t  ft_strcspn(const char *s, const char *reject)
+char    *ft_strrev(char *str)
 {
-    int i = 0;
-    int j = 0;
+	int i;
+	int len;
+	char tmp;
 
-    while (s[i] != '\0')
-    {
-        while (reject[j] != '\0')
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+
+	i = 0;
+	len = 0;
+	while (str[len])
+		len++;
+	while (i < len - 1)
+	{
+		tmp = str[i];
+		str[i] = str[len - 1];
+		str[len - 1] = tmp;
+		i++;
+		len--;
+	}
+	return (str);
 }

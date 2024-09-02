@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:51:49 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:51:58 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-size_t  ft_strcspn(const char *s, const char *reject)
+void print_bits(unsigned char octet)
 {
-    int i = 0;
-    int j = 0;
+	int i = 8;
+	unsigned char 	bit;
 
-    while (s[i] != '\0')
-    {
-        while (reject[j] != '\0')
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+	while (i--)
+	{
+		bit = (octet >> i & 1) + '0';
+		write(1, &bit, 1);
+	}
 }

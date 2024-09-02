@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:47:03 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:47:29 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-size_t  ft_strcspn(const char *s, const char *reject)
+int is_power_of_2(unsigned int n)
 {
-    int i = 0;
-    int j = 0;
-
-    while (s[i] != '\0')
-    {
-        while (reject[j] != '\0')
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+    if (n == 0)
+        return 0;
+    return (n & (n - 1)) == 0;
 }

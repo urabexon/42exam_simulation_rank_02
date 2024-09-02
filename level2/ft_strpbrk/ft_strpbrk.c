@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urabex <urabex@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:19:11 by urabex            #+#    #+#             */
-/*   Updated: 2024/09/02 23:43:32 by urabex           ###   ########.fr       */
+/*   Created: 2024/09/02 23:37:21 by urabex            #+#    #+#             */
+/*   Updated: 2024/09/02 23:42:45 by urabex           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-size_t  ft_strcspn(const char *s, const char *reject)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-    int i = 0;
-    int j = 0;
+	int i;
+	int	j;
 
-    while (s[i] != '\0')
-    {
-        while (reject[j] != '\0')
-        {
-            if(s[i] == reject[j])
-                return (i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (s1[i])
+	{
+		j = 0;
+		while (s2[j])
+		{
+			if (s2[j] == s1[i])
+				return (s1[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }
